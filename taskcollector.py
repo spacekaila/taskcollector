@@ -23,6 +23,7 @@ date_dash = datetime.now().strftime('%Y-%m-%d')
 
 #initialize tasks array
 tasks = []
+#go through each file given
 for f in files:
     #get name of file (for later referencing)
     tasks.append(f+ '\n')
@@ -35,17 +36,18 @@ for f in files:
             tasks.append(l)
 
 #if taskfile is specified
-#--open the given file and writes the date
+#--open the given file
 if argv[1] == '-t':
     g = open(taskfile,'a+')
-    g.write('# ' + date_dot + '\n')
 #if taskfile not specified
-#--create new file with name 'tasks_YYY-MM-DD.md' and writes the date
+#--create new file with name 'tasks_YYY-MM-DD.md'
 else:
     g = open('taskcollector_'+date_dash+'.md','w+')
-    g.write('# '+date_dot + '\n\n')
 
-#writes the filenames and tasks
+#write the date
+g.write('# '+date_dot + '\n\n')
+
+#write the filenames and tasks
 for t in tasks:
     g.write(t)
 

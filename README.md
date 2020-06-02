@@ -16,19 +16,19 @@ a script to collect tasks from markdown files and write them to a new, collectiv
 * taskcollector can take (in theory) an unlimited number of files, but can only write to one taskfile (the last argument)
 
 ## how it works
-taskcollector parses the lines in your given file(s) and looks for lines containing `[ ]` and `[x]`. It collects these lines along with the name of the file. It then either opens your specified task file (specified with the `-t` flag and the file as the last argument) and writes the date, filenames, and tasks, or creates a new file named `taskcollector_YYYY-MM-DD.md` and writes the filenames and tasks there.
+taskcollector parses the lines in your given file(s) and looks for lines containing `[ ]` and `[x]`. It collects these lines along with the name of the file. It then either opens your specified task file (specified with the `-t` flag and the file as the last argument) and appends the tasks to it, or creates a new file named `taskcollector_YYYY-MM-DD.md` and writes the tasks there.
 
 ## examples
 ```
 python3 taskcollector.py -t daily1.md daily2.md tasks.md
 ```
-This tells taskcollector to look for tasks in `daily1.md` and `daily2.md` and write the tasks in `tasks.md`.
+This tells taskcollector to look for tasks in `daily1.md` and `daily2.md` and append the tasks to `tasks.md`.
 
 ```
 python3 taskcollector.py daily1.md daily2.md
 
 ```
-This tells taskcollector to look for tasks in `daily1.md` and `daily2.md` and append them to `taskcollector_yyyy-mm-dd.md`.
+This tells taskcollector to look for tasks in `daily1.md` and `daily2.md` and write the tasks to `taskcollector_yyyy-mm-dd.md`.
 
 The output looks like this:
 
